@@ -25,12 +25,37 @@ var sum = function(array) {
   // if you are at the last index
     // return the element at last index
   // otherwise
-    // return current element plus sum of array.slice(1)
+  // return current element plus sum of array.slice(1)
+
+  //COULD YOU USE FOREACH FOR THIS??
+  if (array.length === 0) {
+    return 0;
+  }
+  if (array.length === 1) {
+    return array[0];
+  }
+  return array[0] += sum(array.slice(1));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  // declare sum variable equal to 0
+  // iterate through array
+    // if typeof current element is not an array
+      // add it to the sum
+    // if it IS an array
+      // add result of applying arraySum on that element to sum
+  // return sum
+  var sum = 0;
+  for (var i = 0; i < array.length; i++) {
+    if (!Array.isArray(array[i])) {
+      sum += array[i];
+    } else {
+      sum += arraySum(array[i]);
+    }
+  }
+  return sum;
 };
 
 // 4. Check if a number is even.
