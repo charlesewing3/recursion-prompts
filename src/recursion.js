@@ -12,11 +12,11 @@ var factorial = function(n) {
   // return n *= factorial(n-1)
   if (n < 0) {
     return null;
-  }
-  if (n === 0) {
+  } else if (n === 0) {
     return 1;
+  } else {
+    return n *= factorial(n-1);
   }
-  return n *= factorial(n-1);
 };
 
 // 2. Compute the sum of an array of integers.
@@ -26,15 +26,13 @@ var sum = function(array) {
     // return the element at last index
   // otherwise
   // return current element plus sum of array.slice(1)
-
-  //COULD YOU USE FOREACH FOR THIS??
   if (array.length === 0) {
     return 0;
-  }
-  if (array.length === 1) {
+  } else if (array.length === 1) {
     return array[0];
+  } else {
+    return array[0] + sum(array.slice(1));
   }
-  return array[0] += sum(array.slice(1));
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
@@ -60,6 +58,22 @@ var arraySum = function(array) {
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+  //create abs val of n variable
+  // if n is 0 or 2
+    // return true
+  // else if n is 1
+    // return false
+  // else
+    // return isEven (n-2)
+  var absN = Math.abs(n);
+  if ([0, 2].indexOf(absN) !== -1) {
+    return true;
+  } else if (absN < 2) {
+    return false;
+  } else {
+    return isEven(absN - 2);
+  }
+
 };
 
 // 5. Sum all integers below a given integer.
