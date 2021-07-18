@@ -73,13 +73,33 @@ var isEven = function(n) {
   } else {
     return isEven(absN - 2);
   }
-
 };
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+
+  // EDGE CASE
+  if (n === 0) {
+    return 0;
+  }
+
+  // DETERMINE IF N IS POSITIVE OR NEGATIVE
+  if (n < 0) {
+    var sum = n + 1;
+  } else {
+    var sum = n - 1;
+  }
+
+
+  if (Math.abs(n) === 1) { /* BASE CASE */
+    return 0;
+  } else if (n < 0 ) {  /* TWO RECURSIVE CASES, DEPENDING IF N IS POSITIVE OR NEGATIVE*/
+    return sum + sumBelow (n + 1);
+  } else {
+    return sum + sumBelow(n - 1);
+  }
 };
 
 // 6. Get the integers within a range (x, y).
