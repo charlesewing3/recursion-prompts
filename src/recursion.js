@@ -106,53 +106,55 @@ var sumBelow = function(n) {
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
   // create empty result array
-  var result = [];
 
   // if x = y
-  if (x === y) {
     // add nothing to the array
     // return result
+
+  // if x is less than y
+    // if x plus 1 equals y
+      // return result array
+    // if x plus 2 equals y
+      // push x+1 into result array
+      // return result array
+    // else
+      // push x+1 into result array AND CONCAT with result of calling range on (x+1, y)
+
+  // if x is greater than y
+    // if x minus 1 equals y
+      // return result array
+    // if x minus 2 equals y
+      // push x-1 into result array
+      // return result array
+    // else
+      // push x-1 into result array AND CONCAT with result of calling range on (x-1, y)
+
+  var result = [];
+
+  if (x === y) {
     return result;
   }
 
-  // if x is less than y
   if (x < y) {
-    // if x plus 1 equals y
     if (x + 1 === y) {
-      // return result array
       return result;
-    }
-    // if x plus 2 equals y
-    if (x + 2 === y) {
-      // push x+1 into result array
+    } else if (x + 2 === y) {
       result.push(x + 1);
-      // return result array
       return result;
     } else {
-    // else
-      // push x+1 into result array AND CONCAT with result of calling range on (x+1, y)
       result.push(x + 1);
       var newResult = result.concat(range(x+1, y));
       return newResult;
     }
 }
 
-  // if x is greater than y
   if (x > y) {
-    // if x minus 1 equals y
     if (x - 1 === y) {
-      // return result array
       return result;
-    }
-    // if x minus 2 equals y
-    if (x - x === y) {
-      // push x-1 into result array
+    } else if (x - 2 === y) {
       result.push(x-1);
-      // return result array
       return result;
     } else {
-    // else
-      // push x-1 into result array AND CONCAT with result of calling range on (x-1, y)
       result.push(x-1);
       var newResult = result.concat(range(x-1, y));
       return newResult;
